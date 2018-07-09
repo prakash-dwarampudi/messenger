@@ -1,5 +1,6 @@
 package com.prakash.rest.messenger.resources;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,7 +13,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import com.prakash.rest.messenger.models.Message;
 import com.prakash.rest.messenger.service.MessageService;
@@ -44,12 +48,22 @@ public class MessageResource {
 
 		return messages;
 	}
+	
+	@GET
+	@Path("{messageId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Message getMessage(@PathParam("messageId") long msgId){
+		Message msg = msgService.getMessage(msgId);
+		return msg;
+	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message createMessage(Message message) {
-		return msgService.createMessage(message);
+	public Response createMessage(Message message, @Context UriInfo uriInfo) {
+		Message createdMsg = msgService.createMessage(message);
+		URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(createdMsg.getId())).build();
+		return Response.created(uri).entity(createdMsg).build();
 	}
 
 	@PUT

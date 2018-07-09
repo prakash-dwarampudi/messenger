@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class Message {
@@ -27,6 +28,7 @@ public class Message {
 		this.comments = new HashMap<>();
 	}
 
+	@XmlTransient
 	public Map<Long, Comment> getComments() {
 		return comments;
 	}
