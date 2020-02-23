@@ -9,7 +9,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>messenger</name>
 
-	<build1>
+	<build>
 		<finalName>messenger</finalName>
 		<plugins>
 			<plugin>
