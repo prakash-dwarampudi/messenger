@@ -6,6 +6,10 @@ import com.prakash.rest.messenger.models.Message;
 
 public interface MessageService {
 	
+	/**
+	*
+	*return collection of messagges
+	**/
 	Collection<Message> getMessages();
 	
 	Message getMessage(long msgId);
