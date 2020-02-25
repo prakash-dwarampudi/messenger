@@ -24,7 +24,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -74,9 +73,7 @@
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>findbugs-maven-plugin</artifactId>
     <version>3.0.5</version>
-</dependency>
-
-			
+</dependency>		
 	</dependencies>
 	<properties>
 		<jersey.version>2.16</jersey.version>
