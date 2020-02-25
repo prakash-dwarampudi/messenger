@@ -6,14 +6,14 @@ import com.prakash.rest.messenger.models.Comment;
 
 public interface CommentService {
 	
-	public List<Comment> getAllComments(long msgId);
+	List<Comment> getAllComments(long msgId);
 	
-	public Comment getComment(long msgId, long commentId);
+	Comment getComment(long msgId, long commentId);
 	
-	public Comment addComment(long msgId, Comment comment);
+	Comment addComment(long msgId, Comment comment);
 	
-	public Comment updateComment(long msgId, Comment comment);
+	Comment updateComment(long msgId, Comment comment);
 	
-	public Comment deleteComment(long msgId, long commentId);
+	Comment deleteComment(long msgId, long commentId);
 
 }
